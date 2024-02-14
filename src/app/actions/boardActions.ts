@@ -5,9 +5,7 @@ import { getUserEmail } from "@/lib/userClient";
 import { RoomInfo } from "@liveblocks/node";
 import uniqid from "uniqid";
 
-export const createBoard = async (
-  name: string
-): Promise<boolean | RoomInfo> => {
+export const createBoard = async (name: string): Promise<false | RoomInfo> => {
   const email = await getUserEmail();
   if (email) {
     const roomId = uniqid.time();
@@ -46,6 +44,6 @@ export const removeEmailFromBoard = async (email: string, boardId: string) => {
 };
 
 export const deleteBoard = async (boardId: string) => {
-  await liveblocksClient.deleteRoom(boardId)
+  await liveblocksClient.deleteRoom(boardId);
   return true;
 };
