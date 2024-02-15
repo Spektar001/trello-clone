@@ -29,7 +29,7 @@ const EmailAccessList = ({
       {Object.keys(usersAccesses).map((email) => (
         <div
           key={email}
-          className="max-w-xs flex justify-between items-center gap-2 my-4 border rounded-lg pl-4"
+          className="max-w-xs flex justify-between items-center gap-2 my-4 border border-gray-300 rounded-lg pl-4"
         >
           {email}
           <button className="btn" onClick={() => handleDelete(email)}>

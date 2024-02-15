@@ -1,20 +1,20 @@
 "use client";
 
+import { updateBoard } from "@/app/actions/boardActions";
 import { RoomProvider, useUpdateMyPresence } from "@/app/liveblocks.config";
-import { LiveList } from "@liveblocks/client";
-import { ClientSideSuspense } from "@liveblocks/react";
-import Columns from "./Columns";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClose,
   faCog,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import { FormEvent, useEffect, useState } from "react";
-import { updateBoard } from "@/app/actions/boardActions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LiveList } from "@liveblocks/client";
+import { ClientSideSuspense } from "@liveblocks/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
 import { BoardContextProvider } from "./BoardContext";
+import Columns from "./Columns";
 
 const Board = ({ id, name }: { id: string; name: string | string[] }) => {
   const [renameMode, setRenameMode] = useState(false);
@@ -55,10 +55,10 @@ const Board = ({ id, name }: { id: string; name: string | string[] }) => {
                 <div>
                   {!renameMode && (
                     <div className="flex gap-2 items-start">
-                      <h1 className="text-2xl">Board: {name}</h1>
+                      <h1 className="text-3xl font-medium">{name}</h1>
                       <button
                         onClick={() => setRenameMode(true)}
-                        className="text-gray-300 hover:text-gray-600"
+                        className="text-gray-300 hover:text-gray-600 transition ease-in duration-200"
                       >
                         <FontAwesomeIcon
                           className="fa-sm"
@@ -69,7 +69,6 @@ const Board = ({ id, name }: { id: string; name: string | string[] }) => {
                   )}
                   {renameMode && (
                     <div className="relative flex gap-2 items-center">
-                      <h1 className="text-2xl">Board: </h1>
                       <form onSubmit={handleNameSubmit}>
                         <input
                           className="pr-7"

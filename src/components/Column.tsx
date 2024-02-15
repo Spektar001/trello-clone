@@ -80,10 +80,10 @@ const Column = ({ id, name }: ColumnProps) => {
     <div className="w-48 bg-white shadow-sm rounded-md p-2">
       {!renameMode && (
         <div className="flex justify-between">
-          <h3>{name}</h3>
+          <h3 className="text-lg font-medium">{name}</h3>
           <button
             onClick={() => setRenameMode(true)}
-            className="text-gray-300 hover:text-gray-600"
+            className="text-gray-300 hover:text-gray-600 transition ease-in duration-200"
           >
             <FontAwesomeIcon icon={faEllipsis} />
           </button>

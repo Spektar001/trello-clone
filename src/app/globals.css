@@ -3,14 +3,19 @@
 @tailwind utilities;
 
 body {
-  background-color: #f6f7fb;
+  background-color: #f4f6fa;
+}
+
+.logo {
+  color: #4677da;
+  font-size: 1.5rem;
 }
 
 button[type="submit"],
 button.primary,
 .btn {
-  @apply bg-gray-200 text-gray-900 py-2 px-4 border border-gray-200 rounded-md;
-  @apply hover:bg-gray-300 transition ease-in duration-200;
+  @apply bg-white text-gray-900 py-2 px-4 shadow-md rounded-md;
+  @apply hover:shadow-sm transition ease-in duration-200;
 }
 
 button[type="submit"],
