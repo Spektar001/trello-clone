@@ -21,6 +21,7 @@ const NewBoardAccess = ({ boardId }: { boardId: string }) => {
     <form action={addEmail} className="max-w-xs">
       <h2 className="text-lg mb-2">Add email</h2>
       <input
+        required
         ref={inputRef}
         type="text"
         name="email"

@@ -1,16 +1,12 @@
 import { Card, useMutation, useStorage } from "@/app/liveblocks.config";
-import { shallow } from "@liveblocks/core";
-import { ReactSortable } from "react-sortablejs";
-import NewCardForm from "./forms/NewCardForm";
-import { FormEvent, useState } from "react";
+import { faEllipsis, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faClose,
-  faEllipsis,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
-import { default as ColumnCard } from "./Card";
+import { shallow } from "@liveblocks/core";
+import { FormEvent, useState } from "react";
+import { ReactSortable } from "react-sortablejs";
 import CancelButton from "./CancelButton";
+import { default as ColumnCard } from "./Card";
+import NewCardForm from "./forms/NewCardForm";
 
 type ColumnProps = {
   id: string;
@@ -19,6 +15,7 @@ type ColumnProps = {
 
 const Column = ({ id, name }: ColumnProps) => {
   const [renameMode, setRenameMode] = useState(false);
+  const [addCardMode, setAddCardMode] = useState(false);
 
   const columnCards = useStorage<Card[]>((root) => {
     return root.cards
@@ -100,7 +97,7 @@ const Column = ({ id, name }: ColumnProps) => {
           </form>
           <button
             onClick={() => deleteColumn(id)}
-            className="w-full flex justify-center items-center gap-2 bg-red-500 text-white p-2 rounded-md with-icon"
+            className="w-full flex justify-center items-center gap-2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-md with-icon"
           >
             <FontAwesomeIcon icon={faTrash} />
             Delete column
@@ -123,7 +120,17 @@ const Column = ({ id, name }: ColumnProps) => {
           </ReactSortable>
         </>
       )}
-      {!renameMode && <NewCardForm columnId={id} />}
+      {!addCardMode && (
+        <button
+          onClick={() => setAddCardMode(true)}
+          className="w-full flex justify-center text-gray-300 text-sm font-medium hover:text-gray-600 transition ease-in duration-200"
+        >
+          Add card
+        </button>
+      )}
+      {addCardMode && (
+        <NewCardForm columnId={id} onClick={() => setAddCardMode(false)} />
+      )}
     </div>
   );
 };

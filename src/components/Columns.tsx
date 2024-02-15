@@ -2,11 +2,14 @@
 
 import { Column, useMutation, useStorage } from "@/app/liveblocks.config";
 import { LiveList, LiveObject, shallow } from "@liveblocks/core";
+import { useState } from "react";
 import { ReactSortable } from "react-sortablejs";
 import { default as BoardColumn } from "./Column";
 import NewColumnForm from "./forms/NewColumnForm";
 
 const Columns = () => {
+  const [addColumnMode, setAddColumnMode] = useState(false);
+
   const columns = useStorage(
     (root) => root.columns.map((c) => ({ ...c })),
     shallow
@@ -45,7 +48,17 @@ const Columns = () => {
         {columns?.length > 0 &&
           columns.map((column) => <BoardColumn key={column.id} {...column} />)}
       </ReactSortable>
-      <NewColumnForm />
+      {!addColumnMode && (
+        <button
+          onClick={() => setAddColumnMode(true)}
+          className="flex ml-4 text-gray-300 text-sm font-medium hover:text-gray-600 transition ease-in duration-200"
+        >
+          Add column
+        </button>
+      )}
+      {addColumnMode && (
+        <NewColumnForm onClick={() => setAddColumnMode(false)} />
+      )}
     </div>
   );
 };

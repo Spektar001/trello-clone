@@ -71,6 +71,7 @@ const Board = ({ id, name }: { id: string; name: string | string[] }) => {
                     <div className="relative flex gap-2 items-center">
                       <form onSubmit={handleNameSubmit}>
                         <input
+                          required
                           className="pr-7"
                           type="text"
                           defaultValue={name}
@@ -78,7 +79,7 @@ const Board = ({ id, name }: { id: string; name: string | string[] }) => {
                       </form>
                       <button
                         onClick={() => setRenameMode(false)}
-                        className="absolute right-2 text-gray-300 hover:text-gray-600"
+                        className="absolute right-2 text-gray-300 hover:text-gray-600 transition ease-in duration-200"
                       >
                         <FontAwesomeIcon className="fa-lg" icon={faClose} />
                       </button>
