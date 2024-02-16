@@ -74,7 +74,7 @@ const Column = ({ id, name }: ColumnProps) => {
   };
 
   return (
-    <div className="w-48 bg-white shadow-sm rounded-md p-2">
+    <div className="w-48 bg-white shadow-sm rounded-md p-2 hover:shadow-md transition ease-in duration-200">
       {!renameMode && (
         <div className="flex justify-between">
           <h3 className="text-lg font-medium">{name}</h3>

@@ -24,7 +24,7 @@ const Card = ({ id, name }: { id: string; name: string }) => {
 
   return (
     <Link
-      className="relative block border bg-white my-2 py-5 px-4 rounded-md"
+      className="relative block border bg-white my-2 py-5 px-4 rounded-md hover:shadow-md transition ease-in duration-200"
       href={`/boards/${params.boardId}/cards/${id}`}
     >
       <span>{name}</span>
