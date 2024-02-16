@@ -90,7 +90,7 @@ const Column = ({ id, name }: ColumnProps) => {
         <div className="mb-8">
           Edit name:
           <form onSubmit={handleRenameSubmit} className="mb-2">
-            <input type="text" defaultValue={name} />
+            <input required type="text" defaultValue={name} />
             <button type="submit" className="w-full mt-2">
               Save
             </button>
