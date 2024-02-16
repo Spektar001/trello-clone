@@ -14,7 +14,7 @@ const BoardsTiles = ({ boards }: { boards: RoomInfo[] }) => {
             <Link
               key={board.id}
               href={`/boards/${board.id}`}
-              className="relative bg-gray-200 px-4 py-6 rounded-md block hover:bg-gray-300 transition ease-in duration-200"
+              className="relative block px-4 py-6 text-lg rounded-md bg-white shadow-md hover:shadow-sm transition ease-in duration-200"
             >
               {board.metadata.boardName}
               <RoomProvider id={board.id} initialPresence={{}}>
