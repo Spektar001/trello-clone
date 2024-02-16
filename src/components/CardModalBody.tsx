@@ -84,7 +84,7 @@ const CardModalBody = () => {
       {editMode && (
         <div>
           <form onSubmit={handleNameChangeSubmit}>
-            <input type="text" defaultValue={card?.name} className="mb-2" />
+            <input required type="text" defaultValue={card?.name} className="mb-2" />
             <button type="submit" className="w-full">
               Save
             </button>
