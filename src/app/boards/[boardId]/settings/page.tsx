@@ -28,10 +28,10 @@ const BoardSettings = async ({ params }: BoardSettingsProps) => {
     <div>
       <div className="flex justify-between">
         <Link
-          className="inline-flex items-center gap-1 btn mb-4"
+          className="inline-flex items-center gap-1 btn mb-4 group"
           href={`/boards/${boardId}`}
         >
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon className="transition-transform duration-300 group-hover:-translate-x-1 motion-reduce:transform-none" icon={faArrowLeft} />
           Go back to board
         </Link>
         <BoardDeleteButton boardId={boardId} />

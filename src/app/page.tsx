@@ -1,4 +1,3 @@
-import Board from "@/components/Board";
 import Boards from "@/components/Boards";
 import LoginView from "@/components/views/LoginView";
 import { authOptions } from "@/lib/authOptions";
@@ -19,11 +18,14 @@ export default async function Home() {
       <Boards />
       <div className="mt-4">
         <Link
-          className="btn primary inline-flex items-center gap-2"
+          className="btn primary inline-flex items-center gap-2 group"
           href={"/new-board"}
         >
           Create new board
-          <FontAwesomeIcon className="h-4" icon={faArrowRight} />
+          <FontAwesomeIcon
+            className="h-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transform-none"
+            icon={faArrowRight}
+          />
         </Link>
       </div>
     </div>
